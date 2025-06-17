@@ -1,4 +1,4 @@
-Appium-WDIO
+# Appium-WDIO
 Anotaciones del curso. 
 
 1. Remote Port: Update port to 4724 and run Appium on the same port as well by doing appium -p 4724
@@ -12,19 +12,29 @@ Chequear que se configure correctamente lo siguiente: (se puede usar Appium-doct
     * Set ANDROID_HOME path
     * Setup simulator
 * Appium Desktop Inspector
-* ￼
-* Appium Installation 
+
+* Appium Installation
+```
 npm install -g appium
+```
 * Appium-doctor installation
+```
 npm install -g appium-doctor
+```
 
 Para chequear si android esta bien configurado: appium-doctor —android, para iOS appium-doctor —ios
 
 Adicionalmente instalar los drivers de appium:
+```
 appium driver install xcuitest
 appium driver install uiautomator2
+```
 
-Appium inspector releases: https://github.com/appium/appium-inspector/releasesTo avoid issues to open Appium inspector: sudo xattr -rd com.apple.quarantine /Applications/Appium\ Inspector.app
+Appium inspector releases: https://github.com/appium/appium-inspector/releasesTo 
+avoid issues to open Appium inspector: 
+```
+sudo xattr -rd com.apple.quarantine /Applications/Appium\ Inspector.app
+```
 Appium inspector capabilities
 ￼
 
@@ -37,7 +47,7 @@ WebDriver IO config:
     * App path
 * Setup test folder
 * Run app with WebdriverIO
-
+```
 capabilities: [
     {
       'appium:platformName': 'Android',
@@ -47,10 +57,12 @@ capabilities: [
       'appium:app': path.join(process.cwd(), 'app/android/ApiDemos-debug.apk'),
     },
   ],
-
-Para usar path.join() es necesario importarlo
+```
+Para usar ```path.join()``` es necesario importarlo
+```
 import path from "path"
-Luego process.cwd() obtiene la ruta en la cual estamos trabajando (currently working directory) y la concatena con el string siguiente.
+```
+Luego ```process.cwd()``` obtiene la ruta en la cual estamos trabajando (currently working directory) y la concatena con el string siguiente.
 
 SETUP EMULATOR FOR TESTING
 
@@ -64,4 +76,8 @@ SETUP EMULATOR FOR TESTING
     * App path
 
 Encontrar elementos por accessibility id, se debe poner el signo de equivalencia previo al id de accesibilidad, ejemplo:
+```
 $('~App')
+```
+
+
