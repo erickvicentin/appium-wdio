@@ -35,12 +35,15 @@ describe('Android native feature tests', () => {
         console.log('ALERT TEXT ---> ', await alertBox.getText())
     })
 
-    it('Vertical scrolling', async () => {
+    it.only('Vertical scrolling test', async () => {
         await $('~App').click()
         await $('~Activity').click()
 
-        //scroll to the end
-        await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)')
+        //scroll to the end, not stable if element gets moved
+        //await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)')
+
+        //ScrollTextIntoView -- text attribute
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollTextIntoView("Secure Surfaces")')
         await $('~Secure Surfaces').click()
 
         //assertion
