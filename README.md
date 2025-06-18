@@ -80,4 +80,18 @@ Encontrar elementos por accessibility id, se debe poner el signo de equivalencia
 $('~App')
 ```
 
+Encontrar elementos por xpath
+```
+$('//android.widget.TextView[@content-desc="Alert Dialogs"]');
+```
+
+Por ClassName
+```
+$('android.widget.TextView')
+````
+
+UiSelector doc:
+https://developer.android.com/reference/androidx/test/uiautomator/UiSelector
+https://appium.readthedocs.io/en/latest/en/writing-running-appium/android/uiautomator-uiselector/
+https://webdriver.io/docs/selectors/#android-uiautomator
 
