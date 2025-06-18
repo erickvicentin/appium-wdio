@@ -12,7 +12,7 @@ describe('Android native feature tests', () => {
         await expect(textAssert).toExist()
     })
 
-    it.only('Working with Dialog Boxes', async () => {
+    it('Working with Dialog Boxes', async () => {
         await driver.startActivity(
           'io.appium.android.apis',
           'io.appium.android.apis.app.AlertDialogSamples'
@@ -33,5 +33,17 @@ describe('Android native feature tests', () => {
         //await expect(alertBox).not.toExist()
 
         console.log('ALERT TEXT ---> ', await alertBox.getText())
+    })
+
+    it('Vertical scrolling', async () => {
+        await $('~App').click()
+        await $('~Activity').click()
+
+        //scroll to the end
+        await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(1,5)')
+        await $('~Secure Surfaces').click()
+
+        //assertion
+        await expect($('~Secure Dialog')).toExist()
     })
 })
